@@ -3,332 +3,90 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Riya & Aryan — A Special Invitation</title>
-
-<!-- WhatsApp / Facebook / Instagram / other link-preview metadata -->
+<meta name="theme-color" content="#fbe4e4">
+<meta name="description" content="Riya & Aryan's Engagement Invitation — 14 December 2026, 6:30 PM, Aagarva (Near Dakor)">
+<meta property="og:title" content="Riya & Aryan — Engagement Invitation">
+<meta property="og:description" content="Our Special Invitation · 14 December 2026 · Aagarva, Near Dakor">
 <meta property="og:type" content="website">
-<meta property="og:title" content="💌 A Special Invitation — Riya & Aryan">
-<meta property="og:description" content="Riya & Aryan are getting engaged! Your special invitation is waiting inside. Tap to open. ❤️">
-<meta property="og:url" content="https://inviite-you.netlify.app/">
-<meta property="og:image" content="https://inviite-you.netlify.app/preview.jpg">
+<meta property="og:image" content="preview.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Riya & Aryan — Our Special Invitation, 14 December 2026">
+<meta property="og:url" content="PASTE_YOUR_GITHUB_PAGES_URL_HERE">
+<meta property="og:site_name" content="Riya & Aryan's Engagement">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="💌 A Special Invitation — Riya & Aryan">
-<meta name="twitter:description" content="Your special invitation is waiting inside. Tap to open. ❤️">
-<meta name="twitter:image" content="https://YOUR-DOMAIN-HERE.com/preview.jpg">
-
+<meta name="twitter:title" content="Riya & Aryan — Engagement Invitation">
+<meta name="twitter:description" content="Our Special Invitation · 14 December 2026 · Aagarva, Near Dakor">
+<meta name="twitter:image" content="preview.jpg">
+<title>Riya & Aryan — Engagement Invitation</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500;1,600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{
-  --ivory:#FFFBF6;--blush:#FBE4E4;--rosegold:#C98A93;--maroon:#B4646F;
-  --gold:#D8B26B;--gold-soft:#EFD9A6;--ink:#5C3A42;
-  box-sizing:border-box;color-scheme:light;
-}
-*{box-sizing:border-box}
-html,body{min-height:100%;margin:0}
-body{
-  background:
-    radial-gradient(circle at 15% 8%,#fffdf9 0%,transparent 42%),
-    radial-gradient(circle at 88% 92%,#fde9e4 0%,transparent 55%),
-    linear-gradient(160deg,#fffaf3 0%,#fdeeee 55%,#fbe6e9 100%);
-  color:var(--ink);font-family:'Poppins',sans-serif;overflow-x:hidden;
-  -webkit-font-smoothing:antialiased;
-}
-button,a{font:inherit}
-#petals{position:fixed;inset:0;pointer-events:none;z-index:5;overflow:hidden}
-.petal{position:absolute;top:-8%;width:14px;height:14px;border-radius:0 60% 0 60%;opacity:.7;animation:fall linear infinite}
-@keyframes fall{to{transform:translateY(112vh) rotate(300deg)}}
-
-#envelope-stage{
-  position:fixed;inset:0;z-index:10;display:flex;align-items:center;justify-content:center;
-  background:radial-gradient(circle at 50% 40%,#fffdf9 0%,var(--blush) 100%);
-  transition:opacity .9s ease,visibility .9s ease;
-}
-#envelope-stage.hidden{opacity:0;visibility:hidden;pointer-events:none}
-.env-wrap{text-align:center;padding:24px}
-.env-label{
-  font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.2rem;
-  color:var(--maroon);margin-bottom:1rem
-}
-.env-small{
-  font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:#a48673;margin-bottom:1.5rem
-}
-.envelope{
-  position:relative;width:min(82vw,320px);height:min(55vw,210px);margin:auto;
-  cursor:pointer;filter:drop-shadow(0 18px 30px rgba(122,46,46,.18));
-  -webkit-tap-highlight-color:transparent;
-}
-.envelope:focus-visible{outline:3px solid var(--gold);outline-offset:10px;border-radius:10px}
-.env-body{
-  position:absolute;inset:0;background:linear-gradient(155deg,#fffdfa,#f6e7da);
-  border:1px solid #e7cdb8;border-radius:7px
-}
-.env-flap{
-  position:absolute;top:0;left:0;right:0;height:58%;
-  background:linear-gradient(160deg,#f3ddc9,#e6c39e);
-  clip-path:polygon(0 0,100% 0,50% 92%);transform-origin:top center;
-  transition:transform 1s cubic-bezier(.6,-.1,.3,1.2);border-radius:7px 7px 0 0
-}
-.seal{
-  position:absolute;left:50%;top:38%;transform:translate(-50%,-50%);
-  width:58px;height:58px;border-radius:50%;
-  background:radial-gradient(circle at 35% 30%,#dba3ab,var(--rosegold));
-  display:flex;align-items:center;justify-content:center;color:var(--gold-soft);
-  font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:600;
-  box-shadow:0 3px 8px rgba(0,0,0,.25);z-index:3;
-  transition:transform .5s ease,opacity .5s ease
-}
-.envelope.open .env-flap{transform:rotateX(-165deg)}
-.envelope.open .seal{transform:translate(-50%,-50%) scale(0);opacity:0}
-.tap-hint{margin-top:1.35rem;font-size:.8rem;color:#9a7b63;letter-spacing:.04em}
-.special-note{
-  margin:1.2rem auto 0;max-width:300px;font-size:.72rem;line-height:1.7;
-  color:#a48673
-}
-
-#card{
-  position:relative;z-index:2;max-width:560px;margin:0 auto;padding:4.2rem 1.6rem 3rem;
-  opacity:0;transform:translateY(26px);transition:opacity 1s ease .1s,transform 1s ease .1s
-}
-#card.show{opacity:1;transform:translateY(0)}
-.corner{position:absolute;width:86px;height:86px;opacity:.55}
-.corner.tl{top:8px;left:8px}.corner.tr{top:8px;right:8px;transform:scaleX(-1)}
-.corner.bl{bottom:8px;left:8px;transform:scaleY(-1)}.corner.br{bottom:8px;right:8px;transform:scale(-1,-1)}
-.blessing{text-align:center;font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--maroon);font-size:1.02rem;margin-bottom:1.6rem}
-.divider{display:flex;align-items:center;gap:.6rem;justify-content:center;color:var(--gold);margin:1.6rem 0}
-.divider:before,.divider:after{content:'';height:1px;width:44px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
-.names{text-align:center;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(2.4rem,9vw,3.4rem);line-height:1.08;color:var(--ink)}
-.amp{display:block;font-style:italic;color:var(--gold);font-size:.5em;margin:.1em 0}
-.subtitle{text-align:center;font-size:.85rem;color:#8a6a54;letter-spacing:.14em;margin-top:.6rem}
-.story{margin:2.4rem auto 0;max-width:440px;text-align:center;font-size:.95rem;line-height:1.85;color:#5c4438}
-.details{margin-top:2.6rem;text-align:center}.details .when{font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--maroon)}
-.details .where{font-size:.92rem;color:#6b5245;margin-top:.35rem}
-.countdown{display:flex;justify-content:center;gap:.7rem;margin-top:1.8rem;flex-wrap:wrap}
-.cd-unit{background:#fffefb;border:1px solid #f0d6d9;border-radius:10px;padding:.7rem .5rem;min-width:62px;box-shadow:0 6px 16px rgba(201,138,147,.14)}
-.cd-num{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--rosegold);font-weight:600}
-.cd-label{font-size:.62rem;letter-spacing:.08em;color:#b48a92;margin-top:.15rem}
-.ritual{margin-top:2.8rem;padding:1.6rem 1.2rem;background:linear-gradient(160deg,#fff,var(--blush) 180%);border-radius:16px;text-align:center}
-.ritual h3{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:1.3rem;color:var(--maroon);margin:0 0 .5rem}
-.ritual p{font-size:.85rem;color:#6b5245;line-height:1.7;margin:0}
-.diya{width:34px;height:34px;margin:0 auto .5rem}
-
-.action-panel{
-  margin-top:2.5rem;padding:1.3rem 1rem;text-align:center;
-  background:rgba(255,255,255,.65);border:1px solid #efd6d8;border-radius:16px
-}
-.action-panel h3{font-family:'Cormorant Garamond',serif;color:var(--maroon);font-size:1.25rem;margin:0 0 .35rem}
-.action-panel p{font-size:.78rem;color:#80675b;line-height:1.65;margin:0 0 1rem}
-.actions{display:flex;gap:.65rem;justify-content:center;flex-wrap:wrap}
-.btn{
-  min-height:44px;padding:.75rem 1.15rem;border-radius:999px;border:none;cursor:pointer;
-  text-decoration:none;display:inline-flex;align-items:center;justify-content:center;
-  transition:transform .2s ease,box-shadow .2s ease
-}
-.btn-primary{background:var(--maroon);color:var(--ivory);box-shadow:0 8px 18px rgba(122,46,46,.22)}
-.btn-outline{background:transparent;color:var(--maroon);border:1px solid var(--maroon)}
-.btn:hover{transform:translateY(-2px)}
-.btn:active{transform:translateY(0)}
-.share-status{font-size:.72rem;color:var(--maroon);margin-top:.8rem;min-height:1.2em}
-
-.rsvp{margin-top:2.6rem;text-align:center}.rsvp p{font-size:.85rem;color:#6b5245;margin-bottom:1rem}
-.rsvp-btns{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap}
-.thanks{display:none;margin-top:1.1rem;font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--maroon);font-size:1.05rem}
-.thanks.show{display:block;animation:pop .4s ease}
-@keyframes pop{from{transform:scale(.85);opacity:0}to{transform:scale(1);opacity:1}}
-footer{text-align:center;margin-top:3rem;font-size:.72rem;color:#b39a87;letter-spacing:.08em}
-
-@media (prefers-reduced-motion:reduce){
-  *,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
-}
+:root{--ivory:#fffaf5;--blush:#fbe4e4;--rose:#c98a93;--maroon:#a95764;--gold:#d8b26b;--gold2:#efd9a6;--ink:#5c3a42;--muted:#765d52;--white:#fffdf9}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-height:100vh;background:radial-gradient(circle at 15% 8%,#fffdf9 0,transparent 42%),radial-gradient(circle at 88% 92%,#fde9e4 0,transparent 55%),linear-gradient(160deg,#fffaf3,#fdeeee 55%,#fbe6e9);color:var(--ink);font-family:Poppins,sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased}button,a{font:inherit}button{cursor:pointer}.hidden{display:none!important}
+#petals{position:fixed;inset:0;pointer-events:none;z-index:50;overflow:hidden}.petal{position:absolute;top:-8%;border-radius:0 60% 0 60%;animation:fall linear infinite}@keyframes fall{to{transform:translateY(112vh) rotate(300deg)}}
+#envelope-stage{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 40%,#fffdf9,#fbe4e4);transition:.9s}.env-wrap{text-align:center;padding:20px}.env-label{font:italic 1.2rem 'Cormorant Garamond',serif;color:var(--maroon);margin-bottom:25px}.envelope{position:relative;width:min(78vw,310px);height:min(52vw,205px);margin:auto;display:block;padding:0;border:none;background:none;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent;filter:drop-shadow(0 18px 30px rgba(122,46,46,.18));perspective:600px}.envelope:focus-visible{outline:2px solid var(--rose);outline-offset:6px;border-radius:8px}.env-body{position:absolute;inset:0;background:linear-gradient(155deg,#fffdfa,#f6e7da);border:1px solid #e7cdb8;border-radius:7px}.env-flap{position:absolute;top:0;left:0;right:0;height:58%;background:linear-gradient(160deg,#f3ddc9,#e6c39e);clip-path:polygon(0 0,100% 0,50% 92%);transform-origin:top center;transition:transform 1s cubic-bezier(.6,-.1,.3,1.2);z-index:2}.seal{position:absolute;left:50%;top:38%;transform:translate(-50%,-50%);width:54px;height:54px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#dba3ab,var(--rose));display:flex;align-items:center;justify-content:center;color:var(--gold2);font:600 1.3rem 'Cormorant Garamond',serif;box-shadow:0 3px 8px #0004;z-index:3;transition:.5s}.envelope.open .env-flap{transform:rotateX(-165deg)}.envelope.open .seal{transform:translate(-50%,-50%) scale(0);opacity:0}.tap-hint{margin-top:22px;font-size:.8rem;color:#9a7b63;letter-spacing:.05em}.stage-hide{opacity:0;visibility:hidden;pointer-events:none}
+#card{position:relative;z-index:2;max-width:650px;margin:auto;padding:54px 20px 45px;opacity:0;transform:translateY(25px);transition:1s}.show{opacity:1!important;transform:none!important}.corner{position:absolute;width:78px;height:78px;opacity:.55}.tl{top:8px;left:8px}.tr{top:8px;right:8px;transform:scaleX(-1)}.bl{bottom:8px;left:8px;transform:scaleY(-1)}.br{bottom:8px;right:8px;transform:scale(-1,-1)}
+.blessing{text-align:center;font:italic 1rem 'Cormorant Garamond',serif;color:var(--maroon);margin-bottom:20px}.names{text-align:center;font:500 clamp(2.7rem,11vw,4.2rem)/.95 'Cormorant Garamond',serif;color:var(--ink)}.amp{display:block;font-style:italic;color:var(--gold);font-size:.48em;margin:8px}.subtitle{text-align:center;font-size:.76rem;letter-spacing:.2em;margin-top:13px;color:#8a6a54}.divider{display:flex;justify-content:center;align-items:center;gap:10px;color:var(--gold);margin:25px 0}.divider:before,.divider:after{content:'';width:60px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}.story{text-align:center;max-width:500px;margin:auto;font:.94rem/1.9 Poppins,sans-serif;color:#5c4438}
+.hero-photo{margin:30px auto 0;max-width:510px;aspect-ratio:4/3;border-radius:24px;overflow:hidden;position:relative;box-shadow:0 18px 40px #a9576420;border:7px solid #fffdf9}.hero-photo img{width:100%;height:100%;object-fit:cover;display:block}.photo-fallback{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:30px;background:linear-gradient(135deg,#fffaf5,#f7dfe2);font:italic 1.5rem 'Cormorant Garamond',serif;color:var(--maroon)}
+.details{text-align:center;margin-top:30px}.when{font:1.55rem 'Cormorant Garamond',serif;color:var(--maroon)}.where{font-size:.9rem;color:#6b5245;margin:7px 0 17px}
+.map-card{max-width:460px;margin:0 auto 18px;border-radius:16px;overflow:hidden;border:1px solid #f0d6d9;box-shadow:0 10px 26px #c98a9324;background:#fff}
+.map-frame{width:100%;height:220px;border:0;display:block}
+.map-address{display:flex;align-items:center;justify-content:center;gap:6px;padding:11px 14px;font-size:.82rem;color:var(--ink);background:linear-gradient(160deg,#fff,var(--blush))}
+.map-pin{font-size:1rem}
+.actions{display:flex;justify-content:center;gap:9px;flex-wrap:wrap}.btn{border:0;border-radius:999px;padding:12px 18px;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:7px;font-size:.82rem;transition:.25s}.btn:hover{transform:translateY(-2px)}.primary{background:var(--maroon);color:white;box-shadow:0 8px 20px #7a2e2e30}.outline{border:1px solid var(--maroon);color:var(--maroon);background:#fff9}.gold{background:#fffaf0;color:#8d6a2e;border:1px solid #e5cc93}
+.countdown{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin:28px auto 0;max-width:440px}.cd{background:#fffefb;border:1px solid #f0d6d9;border-radius:14px;padding:12px 5px;box-shadow:0 7px 18px #c98a9318}.cd-num{font:600 1.6rem 'Cormorant Garamond',serif;color:var(--rose)}.cd-label{font-size:.58rem;letter-spacing:.08em;color:#b48a92}
+.section{margin-top:30px;padding:23px 18px;border-radius:20px;background:linear-gradient(160deg,#fff,var(--blush) 180%);box-shadow:0 8px 25px #c98a9312}.section h2{text-align:center;font:600 1.55rem 'Cormorant Garamond',serif;color:var(--maroon);margin:0 0 9px}.section p{text-align:center;font-size:.84rem;line-height:1.75;color:#6b5245;margin:0}.diya{display:block;width:38px;height:38px;margin:0 auto 6px}.timeline{display:grid;gap:11px;margin-top:18px}.event{display:flex;align-items:center;gap:13px;background:#fff9;padding:12px 13px;border-radius:14px;border:1px solid #efd9dc}.event-time{min-width:75px;text-align:center;font:600 1.15rem 'Cormorant Garamond',serif;color:var(--maroon)}.event-name{font-size:.8rem;color:#6b5245}
+.gallery{display:grid;grid-template-columns:1.3fr .7fr;gap:9px;margin-top:17px}.gallery img{width:100%;height:180px;object-fit:cover;border-radius:15px}.gallery .small{display:grid;gap:9px}.gallery .small img{height:85px}
+.rsvp{text-align:center}.rsvp-buttons{display:flex;gap:9px;justify-content:center;flex-wrap:wrap;margin-top:15px}.thanks{margin-top:13px;color:var(--maroon);font:italic 1.05rem 'Cormorant Garamond',serif;min-height:22px}.rsvp-form{display:none;margin-top:15px}.rsvp-form.show{display:block;animation:pop .35s ease}@keyframes pop{from{transform:scale(.94);opacity:0}to{transform:scale(1);opacity:1}}input,textarea{width:100%;border:1px solid #e5c9ce;background:#fffdf9;border-radius:12px;padding:12px 13px;outline:none;color:var(--ink);margin-bottom:9px}textarea{min-height:85px;resize:vertical}
+.share{text-align:center}.share-row{display:flex;gap:9px;justify-content:center;flex-wrap:wrap;margin-top:15px}.share-note{font-size:.72rem;color:#9b8175;margin-top:10px}.footer{text-align:center;margin-top:30px;font-size:.7rem;color:#b39a87;letter-spacing:.1em}.music{position:fixed;right:16px;bottom:16px;z-index:70;width:46px;height:46px;border-radius:50%;border:1px solid #d8b26b;background:#fffaf5;color:var(--maroon);box-shadow:0 8px 22px #0002;font-size:18px}
+@media(max-width:430px){#card{padding-left:15px;padding-right:15px}.names{font-size:3rem}.when{font-size:1.35rem}.countdown{gap:6px}.cd{padding:10px 3px}.cd-num{font-size:1.4rem}.actions .btn{flex:1;min-width:145px}.gallery{grid-template-columns:1fr}.gallery .small{grid-template-columns:1fr 1fr}.gallery .small img{height:130px}}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 </style>
 </head>
-
 <body>
 <div id="petals"></div>
+<div id="envelope-stage"><div class="env-wrap"><div class="env-label">You are invited to a moment of joy</div><button type="button" class="envelope" id="envelope" aria-label="Open invitation"><div class="env-body"></div><div class="seal">RA</div><div class="env-flap"></div></button><div class="tap-hint" id="tapHint">tap the envelope to open</div></div></div>
+<button class="music" id="musicBtn" aria-label="Play music">♪</button>
+<audio id="music" loop preload="none"><source src="YOUR_MUSIC_URL_HERE.mp3" type="audio/mpeg"></audio>
 
-<!-- First thing a guest sees after opening the WhatsApp invitation -->
-<div id="envelope-stage">
-  <div class="env-wrap">
-    <div class="env-label">A little surprise awaits you</div>
-    <div class="env-small">A special invitation for you</div>
+<main id="card">
+<svg class="corner tl" viewBox="0 0 100 100" fill="none"><path d="M4 4C40 6 70 20 90 60" stroke="#D8B26B"/><circle cx="4" cy="4" r="3" fill="#D8B26B"/></svg><svg class="corner tr" viewBox="0 0 100 100" fill="none"><path d="M4 4C40 6 70 20 90 60" stroke="#D8B26B"/><circle cx="4" cy="4" r="3" fill="#D8B26B"/></svg><svg class="corner bl" viewBox="0 0 100 100" fill="none"><path d="M4 4C40 6 70 20 90 60" stroke="#D8B26B"/><circle cx="4" cy="4" r="3" fill="#D8B26B"/></svg><svg class="corner br" viewBox="0 0 100 100" fill="none"><path d="M4 4C40 6 70 20 90 60" stroke="#D8B26B"/><circle cx="4" cy="4" r="3" fill="#D8B26B"/></svg>
+<div class="blessing">— Shri Ganeshaya Namah —</div>
+<div class="names">Riya <span class="amp">&amp;</span> Aryan</div><div class="subtitle">ARE GETTING ENGAGED</div><div class="divider">✦</div>
+<p class="story">With hearts full of love and blessings from our families, we joyfully invite you to celebrate the beginning of our forever — an evening of rituals, laughter, and togetherness.</p>
 
-    <button class="envelope" id="envelope" type="button" aria-label="Open Riya and Aryan's engagement invitation">
-      <div class="env-body"></div>
-      <div class="seal">RA</div>
-      <div class="env-flap"></div>
-    </button>
+<div class="hero-photo"><img src="YOUR_COUPLE_PHOTO_URL.jpg" alt="Riya and Aryan" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="photo-fallback">Riya &amp; Aryan<br><small style="font-size:.75em">A little glimpse of us</small></div></div>
 
-    <div class="tap-hint">tap the envelope to open</div>
-    <div class="special-note">Something beautiful is about to begin…<br>and we would love for you to be part of it. ❤️</div>
-  </div>
+<section class="details"><div class="when">Sunday, 14th December 2026 · 6:30 PM</div><div class="where">Aagarva, Near Dakor, Gujarat</div>
+<div class="map-card">
+  <iframe class="map-frame" src="https://www.openstreetmap.org/export/embed.html?bbox=73.10%2C22.71%2C73.20%2C22.79&layer=mapnik&marker=22.75%2C73.15" loading="lazy" title="Venue location map"></iframe>
+  <div class="map-address"><span class="map-pin">📍</span><span>Aagarva, Near Dakor, Gujarat</span></div>
 </div>
+<div class="actions"><a class="btn primary" href="https://www.google.com/maps/search/?api=1&query=Aagarva%20near%20Dakor%2C%20Gujarat" target="_blank" rel="noopener">📍 Get Directions</a><button class="btn gold" id="calendarBtn">📅 Add to Calendar</button></div></section>
 
-<div id="card">
-  <svg class="corner tl" viewBox="0 0 100 100" fill="none"><path d="M4 4C40 6 70 20 90 60" stroke="#D8B26B" stroke-width="1.2"/><circle cx="4" cy="4" r="3" fill="#D8B26B"/><path d="M10 4C14 14 8 18 4 24" stroke="#D8B26B" stroke-width="1"/></svg>
-  <svg class="corner tr" viewBox="0 0 100 100" fill="none"><path d="M4 4C40 6 70 20 90 60" stroke="#D8B26B" stroke-width="1.2"/><circle cx="4" cy="4" r="3" fill="#D8B26B"/><path d="M10 4C14 14 8 18 4 24" stroke="#D8B26B" stroke-width="1"/></svg>
-  <svg class="corner bl" viewBox="0 0 100 100" fill="none"><path d="M4 4C40 6 70 20 90 60" stroke="#D8B26B" stroke-width="1.2"/><circle cx="4" cy="4" r="3" fill="#D8B26B"/><path d="M10 4C14 14 8 18 4 24" stroke="#D8B26B" stroke-width="1"/></svg>
-  <svg class="corner br" viewBox="0 0 100 100" fill="none"><path d="M4 4C40 6 70 20 90 60" stroke="#D8B26B" stroke-width="1.2"/><circle cx="4" cy="4" r="3" fill="#D8B26B"/><path d="M10 4C14 14 8 18 4 24" stroke="#D8B26B" stroke-width="1"/></svg>
+<div class="countdown" id="countdown"></div>
 
-  <div class="blessing">— Shri Ganeshaya Namah —</div>
+<section class="section"><svg class="diya" viewBox="0 0 64 64" fill="none"><ellipse cx="32" cy="46" rx="22" ry="8" fill="#D8B26B"/><path d="M32 46c-10-2-16-8-16-14 0-3 2-5 4-5 3 8 20 8 24 0 2 0 4 2 4 5 0 6-6 12-16 14z" fill="#C98A93"/><path d="M32 22c-3 5-3 9 0 11 3-2 3-6 0-11z" fill="#EFD9A6"/></svg><h2>Roka &amp; Ring Ceremony</h2><p>Join us as our families exchange blessings, followed by the ring ceremony and a shagun of sweets, songs and togetherness.</p><div class="timeline"><div class="event"><div class="event-time">6:30 PM</div><div class="event-name">Guest Arrival &amp; Welcome</div></div><div class="event"><div class="event-time">7:00 PM</div><div class="event-name">Roka Ceremony &amp; Family Blessings</div></div><div class="event"><div class="event-time">7:30 PM</div><div class="event-name">Ring Ceremony 💍</div></div><div class="event"><div class="event-time">8:00 PM</div><div class="event-name">Dinner &amp; Celebration</div></div></div></section>
 
-  <div class="names">Riya <span class="amp">&amp;</span> Aryan</div>
-  <div class="subtitle">ARE GETTING ENGAGED</div>
-  <div class="divider"></div>
+<section class="section"><h2>A Little Glimpse of Us</h2><p>Some moments before the celebration begins.</p><div class="gallery"><img src="YOUR_PHOTO_1_URL.jpg" alt="Memory" onerror="this.style.display='none'"><div class="small"><img src="YOUR_PHOTO_2_URL.jpg" alt="Memory" onerror="this.style.display='none'"><img src="YOUR_PHOTO_3_URL.jpg" alt="Memory" onerror="this.style.display='none'"></div></div></section>
 
-  <p class="story">With hearts full of love and blessings from our families, we joyfully invite you to celebrate the beginning of our forever — an evening of rituals, laughter, and togetherness.</p>
+<section class="section rsvp"><h2>Will You Join Us?</h2><p>We'd be blessed to have you with us. Kindly let us know.</p><div class="rsvp-buttons"><button class="btn primary" id="yesBtn">❤️ Yes, I'll be there</button><button class="btn outline" id="noBtn">Maybe / Can't make it</button></div><div class="rsvp-form" id="rsvpForm"><input id="guestName" placeholder="Your name" autocomplete="name"><textarea id="guestMessage" placeholder="A message for Riya & Aryan (optional)"></textarea><button class="btn primary" id="sendRsvp">Send RSVP on WhatsApp 💌</button></div><div class="thanks" id="thanks"></div></section>
 
-  <div class="details">
-    <div class="when">Monday, 14th December 2026 · 6:30 PM</div>
-    <div class="where">The Grand Petal Lawns, Jamnagar</div>
-  </div>
+<section class="section share"><h2>Share the Joy</h2><p>Invite someone special with one tap.</p><div class="share-row"><button class="btn primary" id="shareBtn">📤 Share Invitation</button><a class="btn outline" id="wishBtn" target="_blank" rel="noopener">💌 Send Wishes</a></div><div class="share-note">Perfect for WhatsApp, Instagram, SMS and any messaging app.</div></section>
 
-  <div class="countdown" id="countdown"></div>
-
-  <div class="ritual">
-    <svg class="diya" viewBox="0 0 64 64" fill="none">
-      <ellipse cx="32" cy="46" rx="22" ry="8" fill="#D8B26B"/>
-      <path d="M32 46c-10-2-16-8-16-14 0-3 2-5 4-5 3 8 20 8 24 0 2 0 4 2 4 5 0 6-6 12-16 14z" fill="#C98A93"/>
-      <path d="M32 22c-3 5-3 9 0 11 3-2 3-6 0-11z" fill="#EFD9A6">
-        <animate attributeName="d" values="M32 22c-3 5-3 9 0 11 3-2 3-6 0-11z;M32 19c-4 6-4 11 0 14 4-3 4-8 0-14z;M32 22c-3 5-3 9 0 11 3-2 3-6 0-11z" dur="1.6s" repeatCount="indefinite"/>
-      </path>
-    </svg>
-    <h3>Roka &amp; Ring Ceremony</h3>
-    <p>Join us as our families exchange blessings, followed by the ring ceremony and a shagun of sweets, songs and shagun ki thaali. Traditional attire warmly encouraged.</p>
-  </div>
-
-  <!-- WhatsApp-first sharing area -->
-  <div class="action-panel">
-    <h3>Share the Special Invitation</h3>
-    <p>Send it as a personal invitation message instead of dropping a plain-looking URL.</p>
-    <div class="actions">
-      <button class="btn btn-primary" id="shareWhatsApp" type="button">💌 Share on WhatsApp</button>
-      <button class="btn btn-outline" id="nativeShare" type="button">Share Invitation</button>
-    </div>
-    <div class="share-status" id="shareStatus" aria-live="polite"></div>
-  </div>
-
-  <div class="rsvp">
-    <p>We'd be blessed to have you with us — kindly let us know</p>
-    <div class="rsvp-btns">
-      <button class="btn btn-primary" id="rsvpYes" type="button">I'll be there 🌸</button>
-      <a class="btn btn-outline" id="wishBtn" href="#" target="_blank" rel="noopener">Send wishes</a>
-    </div>
-    <div class="thanks" id="thanksMsg">Thank you — we can't wait to celebrate with you! 💛</div>
-  </div>
-
-  <footer>WITH LOVE, RIYA &amp; ARYAN AND FAMILIES</footer>
-</div>
-
+<div class="footer">WITH LOVE, RIYA &amp; ARYAN AND FAMILIES<br><span style="display:block;margin-top:8px">We can't wait to celebrate with you ❤️</span></div>
+</main>
 <script>
-/*
-  IMPORTANT:
-  1. Deploy this file on HTTPS.
-  2. Replace YOUR-INVITATION-URL below with the final HTTPS URL.
-  3. Put preview.jpg beside this HTML file and use the same URL in the OG tags above.
-*/
-const INVITATION_URL = 'https://inviite-you.netlify.app/';
-const COUPLE = 'Riya & Aryan';
-
-const petalField=document.getElementById('petals');
-const colors=['#D8B26B','#EFD9A6','#C98A93','#F6C9CE'];
-for(let i=0;i<22;i++){
-  const p=document.createElement('div');
-  p.className='petal';
-  p.style.left=Math.random()*100+'vw';
-  p.style.background=colors[i%colors.length];
-  p.style.width=p.style.height=(8+Math.random()*10)+'px';
-  p.style.animationDuration=(9+Math.random()*8)+'s';
-  p.style.animationDelay=(Math.random()*10)+'s';
-  p.style.opacity=.35+Math.random()*.4;
-  petalField.appendChild(p);
-}
-
-const envelope=document.getElementById('envelope');
-const stage=document.getElementById('envelope-stage');
-const card=document.getElementById('card');
-
-function openInvitation(){
-  if(envelope.classList.contains('open')) return;
-  envelope.classList.add('open');
-  setTimeout(()=>{
-    stage.classList.add('hidden');
-    card.classList.add('show');
-    window.scrollTo({top:0,behavior:'smooth'});
-  },650);
-}
-envelope.addEventListener('click',openInvitation);
-
-const target=new Date('2026-12-14T18:30:00');
-const cdEl=document.getElementById('countdown');
-
-function renderCountdown(){
-  const now=new Date();
-  let diff=Math.max(0,target-now);
-  const d=Math.floor(diff/86400000);
-  const h=Math.floor(diff/3600000)%24;
-  const m=Math.floor(diff/60000)%60;
-  const s=Math.floor(diff/1000)%60;
-  cdEl.innerHTML=[[d,'DAYS'],[h,'HRS'],[m,'MIN'],[s,'SEC']]
-    .map(([v,l])=>`<div class="cd-unit"><div class="cd-num">${v}</div><div class="cd-label">${l}</div></div>`).join('');
-}
-renderCountdown();
-setInterval(renderCountdown,1000);
-
-const whatsappMessage =
-`💌 A Special Invitation for You
-
-Riya & Aryan are getting engaged! ❤️
-
-We would love for you to be part of this beautiful celebration.
-
-📅 Monday, 14 December 2026
-🕡 6:30 PM
-📍 The Grand Petal Lawns, Jamnagar
-
-✨ Your invitation is waiting inside...
-Tap below to open it:
-
-${INVITATION_URL}`;
-
-const shareStatus=document.getElementById('shareStatus');
-
-document.getElementById('shareWhatsApp').addEventListener('click',()=>{
-  if(INVITATION_URL.includes('YOUR-DOMAIN-HERE')){
-    shareStatus.textContent='First replace YOUR-DOMAIN-HERE with your deployed invitation URL.';
-    return;
-  }
-  const url='https://wa.me/?text='+encodeURIComponent(whatsappMessage);
-  window.open(url,'_blank','noopener');
-  shareStatus.textContent='WhatsApp is opening with your special invitation message.';
-});
-
-document.getElementById('nativeShare').addEventListener('click',async()=>{
-  if(INVITATION_URL.includes('YOUR-DOMAIN-HERE')){
-    shareStatus.textContent='First replace YOUR-DOMAIN-HERE with your deployed invitation URL.';
-    return;
-  }
-  const data={title:'💌 Riya & Aryan — Special Invitation',text:whatsappMessage,url:INVITATION_URL};
-  if(navigator.share){
-    try{await navigator.share(data);shareStatus.textContent='Invitation shared.';}
-    catch(e){if(e.name!=='AbortError') shareStatus.textContent='Sharing was cancelled.';}
-  }else{
-    window.open('https://wa.me/?text='+encodeURIComponent(whatsappMessage),'_blank','noopener');
-    shareStatus.textContent='WhatsApp sharing opened.';
-  }
-});
-
-document.getElementById('wishBtn').href='https://wa.me/?text='+encodeURIComponent(
-  'Congratulations Riya & Aryan! ❤️ Wishing you both a beautiful journey ahead!'
-);
-
-document.getElementById('rsvpYes').addEventListener('click',function(){
-  document.getElementById('thanksMsg').classList.add('show');
-  this.disabled=true;
-  this.style.opacity='.7';
-});
+// ↓↓↓ REQUIRED: replace with the host's WhatsApp number, country code + number, no + or spaces (e.g. 919876543210) ↓↓↓
+const HOST_WHATSAPP='91XXXXXXXXXX';
+const petalField=document.getElementById('petals');['#D8B26B','#EFD9A6','#C98A93','#F6C9CE'].forEach((c,i)=>{for(let j=0;j<5;j++){const p=document.createElement('div');p.className='petal';p.style.left=Math.random()*100+'vw';p.style.background=c;p.style.width=p.style.height=(8+Math.random()*8)+'px';p.style.opacity=.25+Math.random()*.35;p.style.animationDuration=(9+Math.random()*8)+'s';p.style.animationDelay=(Math.random()*10)+'s';petalField.appendChild(p)}});
+const envelope=document.getElementById('envelope'),stage=document.getElementById('envelope-stage'),card=document.getElementById('card');let envOpened=false;function openEnv(e){if(e)e.preventDefault();if(envOpened)return;envOpened=true;envelope.classList.add('open');setTimeout(()=>{stage.classList.add('stage-hide');card.classList.add('show')},650)}envelope.addEventListener('touchend',openEnv,{passive:false});envelope.addEventListener('click',openEnv);setTimeout(()=>{if(!envOpened){const h=document.getElementById('tapHint');h.innerHTML='Tap not opening? <a href="javascript:void(0)" onclick="document.getElementById(\'envelope\').click()" style="color:var(--rose);text-decoration:underline">Tap here to open</a>'}},5000);
+const target=new Date('2026-12-14T18:30:00+05:30'),cd=document.getElementById('countdown');function countdown(){let d=target-new Date();if(d<=0){cd.innerHTML='<div class="cd" style="grid-column:1/-1"><div class="cd-num">Today is the day! 🎉</div></div>';return}let days=Math.floor(d/86400000),hrs=Math.floor(d/3600000)%24,min=Math.floor(d/60000)%60,sec=Math.floor(d/1000)%60;cd.innerHTML=[[days,'DAYS'],[hrs,'HRS'],[min,'MIN'],[sec,'SEC']].map(x=>`<div class="cd"><div class="cd-num">${x[0]}</div><div class="cd-label">${x[1]}</div></div>`).join('')}countdown();setInterval(countdown,1000);
+const yes=document.getElementById('yesBtn'),form=document.getElementById('rsvpForm'),thanks=document.getElementById('thanks');yes.onclick=()=>{form.classList.add('show');yes.style.display='none'};document.getElementById('noBtn').onclick=()=>{const text=encodeURIComponent('Hi Riya & Aryan! Thank you for inviting me to your engagement. I may not be able to attend, but sending you both lots of love and best wishes! ❤️');window.open('https://wa.me/'+HOST_WHATSAPP+'?text='+text,'_blank')};document.getElementById('sendRsvp').onclick=()=>{const name=document.getElementById('guestName').value.trim()||'A guest';const msg=document.getElementById('guestMessage').value.trim();const text=encodeURIComponent(`Hi Riya & Aryan! ❤️\n\nRSVP: Yes, I'll be there!\nGuest: ${name}${msg?'\nMessage: '+msg:''}\n\nLooking forward to celebrating with you!`);window.open('https://wa.me/'+HOST_WHATSAPP+'?text='+text,'_blank');thanks.textContent='Thank you! Your WhatsApp RSVP is ready to send. 💛';thanks.style.display='block'};
+const wish='Hi Riya & Aryan! Congratulations on your engagement! Wishing you both a beautiful journey filled with love, laughter and happiness. ❤️';document.getElementById('wishBtn').href='https://wa.me/'+HOST_WHATSAPP+'?text='+encodeURIComponent(wish);
+document.getElementById('shareBtn').onclick=async()=>{const data={title:'Riya & Aryan — Engagement Invitation',text:'You are warmly invited to celebrate Riya & Aryan’s engagement ❤️',url:location.href};if(navigator.share){try{await navigator.share(data)}catch(e){}}else{await navigator.clipboard?.writeText(location.href);alert('Invitation link copied! You can now paste it in WhatsApp.')}};
+document.getElementById('calendarBtn').onclick=()=>{const ics=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Riya Aryan//Engagement//EN','BEGIN:VEVENT','UID:riya-aryan-engagement-2026@example.com','DTSTAMP:20260926T000000Z','DTSTART:20261214T130000Z','DTEND:20261214T163000Z','SUMMARY:Riya & Aryan — Engagement','LOCATION:Aagarva, Near Dakor, Gujarat','DESCRIPTION:Engagement celebration of Riya & Aryan.','END:VEVENT','END:VCALENDAR'].join('\r\n');const blob=new Blob([ics],{type:'text/calendar'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='Riya-Aryan-Engagement.ics';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)};
+const music=document.getElementById('music'),musicBtn=document.getElementById('musicBtn');musicBtn.onclick=async()=>{if(!music.getAttribute('src')&&!music.querySelector('source').src.includes('YOUR_MUSIC_URL')){alert('Add your music URL in the HTML first.');return}try{if(music.paused){await music.play();musicBtn.textContent='❚❚'}else{music.pause();musicBtn.textContent='♪'}}catch(e){alert('Please add a valid music file URL first.')}};
 </script>
-</body>
-</html>
+</body></html>
