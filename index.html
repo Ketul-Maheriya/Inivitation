@@ -20,7 +20,7 @@
 <meta name="twitter:image" content="https://ketul-maheriya.github.io/Inivitation/preview.jpg">
 <title>Jaimin & Jaimini — Engagement Invitation</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500;1,600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500;1,600&family=Poppins:wght@300;400;500;600&family=Noto+Sans+Gujarati:wght@400;500;600&family=Noto+Serif+Gujarati:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{--ivory:#fffaf5;--blush:#fbe4e4;--rose:#c98a93;--maroon:#a95764;--gold:#d8b26b;--gold2:#efd9a6;--ink:#5c3a42;--muted:#765d52;--white:#fffdf9}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-height:100vh;background:radial-gradient(circle at 15% 8%,#fffdf9 0,transparent 42%),radial-gradient(circle at 88% 92%,#fde9e4 0,transparent 55%),linear-gradient(160deg,#fffaf3,#fdeeee 55%,#fbe6e9);color:var(--ink);font-family:Poppins,sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased}button,a{font:inherit}button{cursor:pointer}.hidden{display:none!important}
@@ -43,50 +43,184 @@
 @media(max-width:430px){#card{padding-left:15px;padding-right:15px}.names{font-size:3rem}.when{font-size:1.35rem}.countdown{gap:6px}.cd{padding:10px 3px}.cd-num{font-size:1.4rem}.actions .btn{flex:1;min-width:145px}.gallery{grid-template-columns:1fr}.gallery .small{grid-template-columns:1fr 1fr}.gallery .small img{height:130px}}
 @media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 .music.playing{animation:musicPulse 2.2s infinite}@keyframes musicPulse{0%{box-shadow:0 0 0 0 rgba(216,178,107,.55)}70%{box-shadow:0 0 0 14px rgba(216,178,107,0)}100%{box-shadow:0 0 0 0 rgba(216,178,107,0)}}
+
+#lang-stage{position:fixed;inset:0;z-index:120;display:flex;align-items:center;justify-content:center;padding:24px;background:radial-gradient(circle at 50% 35%,#fffdf9 0%,var(--blush) 100%);transition:opacity .7s ease,visibility .7s ease}
+#lang-stage.hide{opacity:0;visibility:hidden;pointer-events:none}
+.lang-box{width:min(88vw,360px);text-align:center;background:#fffefbd9;border:1px solid #f0d6d9;border-radius:22px;padding:30px 22px 26px;box-shadow:0 18px 44px #c98a9333;animation:langIn .9s ease both}
+@keyframes langIn{from{opacity:0;transform:translateY(18px) scale(.97)}to{opacity:1;transform:none}}
+.lang-om{font-size:1.5rem;color:var(--gold);margin-bottom:8px}
+.lang-title{font:500 1.55rem 'Cormorant Garamond','Noto Serif Gujarati',serif;color:var(--maroon);line-height:1.35}
+.lang-gu{font-family:'Noto Serif Gujarati','Noto Sans Gujarati',serif}
+.lang-title.lang-gu{font-size:1.2rem;margin-top:2px}
+.lang-btn{display:block;width:100%;margin-top:14px;padding:15px;border-radius:999px;border:1px solid var(--gold);background:#fff;font:500 1.05rem Poppins,'Noto Sans Gujarati',sans-serif;color:var(--ink);cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent;transition:transform .2s}
+.lang-btn.primary{background:var(--maroon);border-color:var(--maroon);color:#fff;box-shadow:0 8px 20px #a9576440}
+.lang-btn:active{transform:scale(.97)}
+.lang-toggle{display:none;position:fixed;top:calc(12px + env(safe-area-inset-top,0px));right:14px;z-index:70;padding:7px 13px;border-radius:999px;border:1px solid var(--gold);background:#fffaf5ee;color:var(--maroon);font:500 .78rem Poppins,'Noto Sans Gujarati',sans-serif;box-shadow:0 6px 16px #0001;cursor:pointer;touch-action:manipulation}
+.lang-toggle.show{display:block}
+html.gu body,html.gu button,html.gu input,html.gu textarea{font-family:'Noto Sans Gujarati',Poppins,sans-serif}
+html.gu .names,html.gu .when,html.gu h2,html.gu .blessing,html.gu .env-label,html.gu .cd-num,html.gu .photo-fallback,html.gu .event-time,html.gu .thanks{font-family:'Noto Serif Gujarati','Cormorant Garamond',serif}
+html.gu *{letter-spacing:0!important}
+html.gu .story,html.gu .where,html.gu .event-name,html.gu p{line-height:1.9}
 </style>
 </head>
 <body>
 <div id="petals"></div>
-<div id="envelope-stage"><div class="env-wrap"><div class="env-label">You are invited to a moment of joy</div><button type="button" class="envelope" id="envelope" aria-label="Open invitation"><div class="env-body"></div><div class="seal">JJ</div><div class="env-flap"></div></button><div class="tap-hint" id="tapHint">tap the envelope to open</div></div></div>
+<div id="lang-stage"><div class="lang-box">
+  <div class="lang-om">✦</div>
+  <div class="lang-title">Choose your language</div>
+  <div class="lang-title lang-gu">તમારી ભાષા પસંદ કરો</div>
+  <button type="button" class="lang-btn primary" id="langEn">English</button>
+  <button type="button" class="lang-btn" id="langGu"><span class="lang-gu">ગુજરાતી</span></button>
+</div></div>
+<button type="button" class="lang-toggle" id="langToggle" aria-label="Change language">ગુજરાતી</button>
+<div id="envelope-stage"><div class="env-wrap"><div class="env-label" data-i18n="envLabel">You are invited to a moment of joy</div><button type="button" class="envelope" id="envelope" aria-label="Open invitation"><div class="env-body"></div><div class="seal">JJ</div><div class="env-flap"></div></button><div class="tap-hint" id="tapHint" data-i18n="tapHint">tap the envelope to open</div></div></div>
 <button class="music" id="musicBtn" type="button" aria-label="Play music" title="Music on/off">🔇</button>
 
 <main id="card">
 <svg class="corner tl" viewBox="0 0 100 100" fill="none"><path d="M4 4C40 6 70 20 90 60" stroke="#D8B26B"/><circle cx="4" cy="4" r="3" fill="#D8B26B"/></svg><svg class="corner tr" viewBox="0 0 100 100" fill="none"><path d="M4 4C40 6 70 20 90 60" stroke="#D8B26B"/><circle cx="4" cy="4" r="3" fill="#D8B26B"/></svg><svg class="corner bl" viewBox="0 0 100 100" fill="none"><path d="M4 4C40 6 70 20 90 60" stroke="#D8B26B"/><circle cx="4" cy="4" r="3" fill="#D8B26B"/></svg><svg class="corner br" viewBox="0 0 100 100" fill="none"><path d="M4 4C40 6 70 20 90 60" stroke="#D8B26B"/><circle cx="4" cy="4" r="3" fill="#D8B26B"/></svg>
-<div class="blessing">— Shri Ganeshaya Namah —</div>
-<div class="names">Jaimin <span class="amp">&amp;</span> Jaimini</div><div class="subtitle">ARE GETTING ENGAGED</div><div class="divider">✦</div>
-<p class="story">With hearts full of love and blessings from our families, we joyfully invite you to celebrate the beginning of our forever — a morning of rituals, laughter, and togetherness.</p>
+<div class="blessing" data-i18n="blessing">— Shri Ganeshaya Namah —</div>
+<div class="names" data-i18n-html="names">Jaimin <span class="amp">&amp;</span> Jaimini</div><div class="subtitle" data-i18n="subtitle">ARE GETTING ENGAGED</div><div class="divider">✦</div>
+<p class="story" data-i18n="story">With hearts full of love and blessings from our families, we joyfully invite you to celebrate the beginning of our forever — a morning of rituals, laughter, and togetherness.</p>
 
-<div class="hero-photo"><img src="YOUR_COUPLE_PHOTO_URL.jpg" alt="Jaimin and Jaimini" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="photo-fallback">Jaimin &amp; Jaimini<br><small style="font-size:.75em">A little glimpse of us</small></div></div>
+<div class="hero-photo"><img src="YOUR_COUPLE_PHOTO_URL.jpg" alt="Jaimin and Jaimini" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="photo-fallback" data-i18n-html="photoFb">Jaimin &amp; Jaimini<br><small style="font-size:.75em">A little glimpse of us</small></div></div>
 
-<section class="details"><div class="when">Sunday, 25th October 2026 · 10:00 AM</div><div class="where">Agarwa, Ta. Thasra, Dist. Kheda, Gujarat</div>
+<section class="details"><div class="when" data-i18n="when">Sunday, 25th October 2026 · 10:00 AM</div><div class="where" data-i18n="addr">Agarwa, Ta. Thasra, Dist. Kheda, Gujarat</div>
 <div class="map-card">
   <iframe class="map-frame" src="https://www.openstreetmap.org/export/embed.html?bbox=73.12%2C22.71%2C73.30%2C22.88&layer=mapnik&marker=22.797%2C73.212" loading="lazy" title="Venue location map"></iframe>
-  <div class="map-address"><span class="map-pin">📍</span><span>Agarwa, Ta. Thasra, Dist. Kheda, Gujarat</span></div>
+  <div class="map-address"><span class="map-pin">📍</span><span data-i18n="addr">Agarwa, Ta. Thasra, Dist. Kheda, Gujarat</span></div>
 </div>
-<div class="actions"><a class="btn primary" href="https://www.google.com/maps/search/?api=1&query=Agarwa%2C+Thasra%2C+Kheda%2C+Gujarat%2C+India" target="_blank" rel="noopener">📍 Get Directions</a><button class="btn gold" id="calendarBtn">📅 Add to Calendar</button></div></section>
+<div class="actions"><a class="btn primary" href="https://www.google.com/maps/search/?api=1&query=Agarwa%2C+Thasra%2C+Kheda%2C+Gujarat%2C+India" target="_blank" rel="noopener" data-i18n="directions">📍 Get Directions</a><button class="btn gold" id="calendarBtn" data-i18n="calendar">📅 Add to Calendar</button></div></section>
 
 <div class="countdown" id="countdown"></div>
 
-<section class="section"><svg class="diya" viewBox="0 0 64 64" fill="none"><ellipse cx="32" cy="46" rx="22" ry="8" fill="#D8B26B"/><path d="M32 46c-10-2-16-8-16-14 0-3 2-5 4-5 3 8 20 8 24 0 2 0 4 2 4 5 0 6-6 12-16 14z" fill="#C98A93"/><path d="M32 22c-3 5-3 9 0 11 3-2 3-6 0-11z" fill="#EFD9A6"/></svg><h2>Engagement Ceremony</h2><p>Join us as our families exchange blessings, followed by the ring ceremony and a shagun of sweets, songs and togetherness.</p><div class="timeline"><div class="event"><div class="event-time">10:00 AM</div><div class="event-name">Guest Arrival &amp; Welcome</div></div><div class="event"><div class="event-time">10:30 AM</div><div class="event-name">Family Blessings</div></div><div class="event"><div class="event-time">11:00 AM</div><div class="event-name">Ring Ceremony 💍</div></div><div class="event"><div class="event-time">12:00 PM</div><div class="event-name">Lunch &amp; Celebration</div></div></div></section>
+<section class="section"><svg class="diya" viewBox="0 0 64 64" fill="none"><ellipse cx="32" cy="46" rx="22" ry="8" fill="#D8B26B"/><path d="M32 46c-10-2-16-8-16-14 0-3 2-5 4-5 3 8 20 8 24 0 2 0 4 2 4 5 0 6-6 12-16 14z" fill="#C98A93"/><path d="M32 22c-3 5-3 9 0 11 3-2 3-6 0-11z" fill="#EFD9A6"/></svg><h2 data-i18n="ceremonyH">Engagement Ceremony</h2><p data-i18n="ceremonyP">Join us as our families exchange blessings, followed by the ring ceremony and a shagun of sweets, songs and togetherness.</p><div class="timeline"><div class="event"><div class="event-time" data-i18n="t1">10:00 AM</div><div class="event-name" data-i18n="t1n">Guest Arrival &amp; Welcome</div></div><div class="event"><div class="event-time" data-i18n="t2">10:30 AM</div><div class="event-name" data-i18n="t2n">Family Blessings</div></div><div class="event"><div class="event-time" data-i18n="t3">11:00 AM</div><div class="event-name" data-i18n="t3n">Ring Ceremony 💍</div></div><div class="event"><div class="event-time" data-i18n="t4">12:00 PM</div><div class="event-name" data-i18n="t4n">Lunch &amp; Celebration</div></div></div></section>
 
-<section class="section"><h2>A Little Glimpse of Us</h2><p>Some moments before the celebration begins.</p><div class="gallery"><img src="YOUR_PHOTO_1_URL.jpg" alt="Memory" onerror="this.style.display='none'"><div class="small"><img src="YOUR_PHOTO_2_URL.jpg" alt="Memory" onerror="this.style.display='none'"><img src="YOUR_PHOTO_3_URL.jpg" alt="Memory" onerror="this.style.display='none'"></div></div></section>
+<section class="section"><h2 data-i18n="glimpseH">A Little Glimpse of Us</h2><p data-i18n="glimpseP">Some moments before the celebration begins.</p><div class="gallery"><img src="YOUR_PHOTO_1_URL.jpg" alt="Memory" onerror="this.style.display='none'"><div class="small"><img src="YOUR_PHOTO_2_URL.jpg" alt="Memory" onerror="this.style.display='none'"><img src="YOUR_PHOTO_3_URL.jpg" alt="Memory" onerror="this.style.display='none'"></div></div></section>
 
-<section class="section rsvp"><h2>Will You Join Us?</h2><p>We'd be blessed to have you with us. Kindly let us know.</p><div class="rsvp-buttons"><button class="btn primary" id="yesBtn">❤️ Yes, I'll be there</button><button class="btn outline" id="noBtn">Maybe / Can't make it</button></div><div class="rsvp-form" id="rsvpForm"><input id="guestName" placeholder="Your name" autocomplete="name"><textarea id="guestMessage" placeholder="A message for Jaimin & Jaimini (optional)"></textarea><button class="btn primary" id="sendRsvp">Send RSVP on WhatsApp 💌</button></div><div class="thanks" id="thanks"></div></section>
+<section class="section rsvp"><h2 data-i18n="rsvpH">Will You Join Us?</h2><p data-i18n="rsvpP">We'd be blessed to have you with us. Kindly let us know.</p><div class="rsvp-buttons"><button class="btn primary" id="yesBtn" data-i18n="yes">❤️ Yes, I'll be there</button><button class="btn outline" id="noBtn" data-i18n="no">Maybe / Can't make it</button></div><div class="rsvp-form" id="rsvpForm"><input id="guestName" data-i18n-ph="phName" placeholder="Your name" autocomplete="name"><textarea id="guestMessage" data-i18n-ph="phMsg" placeholder="A message for Jaimin & Jaimini (optional)"></textarea><button class="btn primary" id="sendRsvp" data-i18n="sendRsvp">Send RSVP on WhatsApp 💌</button></div><div class="thanks" id="thanks"></div></section>
 
-<section class="section share"><h2>Share the Joy</h2><p>Invite someone special with one tap.</p><div class="share-row"><button class="btn primary" id="shareBtn">📤 Share Invitation</button><a class="btn outline" id="wishBtn" target="_blank" rel="noopener">💌 Send Wishes</a></div><div class="share-note">Perfect for WhatsApp, Instagram, SMS and any messaging app.</div></section>
+<section class="section share"><h2 data-i18n="shareH">Share the Joy</h2><p data-i18n="shareP">Invite someone special with one tap.</p><div class="share-row"><button class="btn primary" id="shareBtn" data-i18n="share">📤 Share Invitation</button><a class="btn outline" id="wishBtn" target="_blank" rel="noopener" data-i18n="wishes">💌 Send Wishes</a></div><div class="share-note" data-i18n="shareNote">Perfect for WhatsApp, Instagram, SMS and any messaging app.</div></section>
 
-<div class="footer">WITH LOVE, JAIMIN &amp; JAIMINI AND FAMILIES<br><span style="display:block;margin-top:8px">We can't wait to celebrate with you ❤️</span></div>
+<div class="footer" data-i18n-html="footer">WITH LOVE, JAIMIN &amp; JAIMINI AND FAMILIES<br><span style="display:block;margin-top:8px">We can't wait to celebrate with you ❤️</span></div>
 </main>
 <script>
-// ↓↓↓ REQUIRED: replace with the host's WhatsApp number, country code + number, no + or spaces (e.g. 919876543210) ↓↓↓
-const HOST_WHATSAPP='+919662200810';
+// ↓↓↓ WhatsApp number that receives RSVPs & wishes (country code + number, no + or spaces) ↓↓↓
+const HOST_WHATSAPP='919574466883';
+
+/* ---------- Languages: English + Gujarati ---------- */
+const T={
+en:{
+ title:'Jaimin & Jaimini — Engagement Invitation',
+ envLabel:'You are invited to a moment of joy', tapHint:'tap the envelope to open',
+ tapFallback:'Tap not opening? <a href="javascript:void(0)" onclick="document.getElementById(\'envelope\').click()" style="color:var(--rose);text-decoration:underline">Tap here to open</a>',
+ blessing:'— Shri Ganeshaya Namah —',
+ names:'Jaimin <span class="amp">&amp;</span> Jaimini', subtitle:'ARE GETTING ENGAGED',
+ story:'With hearts full of love and blessings from our families, we joyfully invite you to celebrate the beginning of our forever — a morning of rituals, laughter, and togetherness.',
+ photoFb:'Jaimin &amp; Jaimini<br><small style="font-size:.75em">A little glimpse of us</small>',
+ when:'Sunday, 25th October 2026 · 10:00 AM', addr:'Agarwa, Ta. Thasra, Dist. Kheda, Gujarat',
+ directions:'📍 Get Directions', calendar:'📅 Add to Calendar',
+ cdLabels:['DAYS','HRS','MIN','SEC'], today:'Today is the day! 🎉',
+ ceremonyH:'Engagement Ceremony',
+ ceremonyP:'Join us as our families exchange blessings, followed by the ring ceremony and a shagun of sweets, songs and togetherness.',
+ t1:'10:00 AM',t1n:'Guest Arrival & Welcome',t2:'10:30 AM',t2n:'Family Blessings',t3:'11:00 AM',t3n:'Ring Ceremony 💍',t4:'12:00 PM',t4n:'Lunch & Celebration',
+ glimpseH:'A Little Glimpse of Us', glimpseP:'Some moments before the celebration begins.',
+ rsvpH:'Will You Join Us?', rsvpP:"We'd be blessed to have you with us. Kindly let us know.",
+ yes:"❤️ Yes, I'll be there", no:"Maybe / Can't make it", phName:'Your name', phMsg:'A message for Jaimin & Jaimini (optional)',
+ sendRsvp:'Send RSVP on WhatsApp 💌', guest:'A guest',
+ thanks:'Thank you! Your WhatsApp RSVP is ready to send. 💛',
+ shareH:'Share the Joy', shareP:'Invite someone special with one tap.', share:'📤 Share Invitation', wishes:'💌 Send Wishes',
+ shareNote:'Perfect for WhatsApp, Instagram, SMS and any messaging app.',
+ footer:'WITH LOVE, JAIMIN &amp; JAIMINI AND FAMILIES<br><span style="display:block;margin-top:8px">We can\'t wait to celebrate with you ❤️</span>',
+ noMsg:'Hi Jaimin & Jaimini! Thank you for inviting me to your engagement. I may not be able to attend, but sending you both lots of love and best wishes! ❤️',
+ rsvpMsg:(n,m)=>`Hi Jaimin & Jaimini! ❤️\n\nRSVP: Yes, I'll be there!\nGuest: ${n}${m?'\nMessage: '+m:''}\n\nLooking forward to celebrating with you!`,
+ wish:'Hi Jaimin & Jaimini! Congratulations on your engagement! Wishing you both a beautiful journey filled with love, laughter and happiness. ❤️',
+ shareTitle:'Jaimin & Jaimini — Engagement Invitation', shareText:'You are warmly invited to celebrate Jaimin & Jaimini’s engagement ❤️',
+ copied:'Invitation link copied! You can now paste it in WhatsApp.',
+ icsSummary:'Jaimin & Jaimini — Engagement', icsLoc:'Agarwa, Ta. Thasra, Dist. Kheda, Gujarat', icsDesc:'Engagement celebration of Jaimin & Jaimini.',
+ toastMusic:'🎶 Music playing — tap 🔊 to mute', muteMusic:'Mute music', playMusic:'Play music', toggle:'ગુજરાતી'
+},
+gu:{
+ title:'જૈમિન અને જૈમિની — સગાઈ આમંત્રણ',
+ envLabel:'આનંદની એક ક્ષણમાં આપ આમંત્રિત છો', tapHint:'ખોલવા માટે કવર પર ટેપ કરો',
+ tapFallback:'ખુલતું નથી? <a href="javascript:void(0)" onclick="document.getElementById(\'envelope\').click()" style="color:var(--rose);text-decoration:underline">અહીં ટેપ કરો</a>',
+ blessing:'— શ્રી ગણેશાય નમઃ —',
+ names:'જૈમિન <span class="amp">&amp;</span> જૈમિની', subtitle:'સગાઈના બંધનમાં બંધાઈ રહ્યા છે',
+ story:'પરિવારના આશીર્વાદ અને હૃદયભરી લાગણીઓ સાથે, અમારા સહજીવનની શરૂઆતના આ શુભ અવસરે આપને સહર્ષ આમંત્રિત કરીએ છીએ — વિધિઓ, હાસ્ય અને સ્નેહભર્યા મિલનની એક સુંદર સવાર.',
+ photoFb:'જૈમિન &amp; જૈમિની<br><small style="font-size:.75em">અમારી એક નાનકડી ઝલક</small>',
+ when:'રવિવાર, 25 ઓક્ટોબર 2026 · સવારે 10:00 વાગ્યે', addr:'આગરવા, તા. ઠાસરા, જિ. ખેડા, ગુજરાત',
+ directions:'📍 દિશા-નિર્દેશ મેળવો', calendar:'📅 કેલેન્ડરમાં ઉમેરો',
+ cdLabels:['દિવસ','કલાક','મિનિટ','સેકન્ડ'], today:'આજે એ શુભ દિવસ છે! 🎉',
+ ceremonyH:'સગાઈ સમારોહ',
+ ceremonyP:'અમારા પરિવારજનો આશીર્વાદની આપ-લે કરે, ત્યારબાદ વીંટી વિધિ અને મીઠાઈ, ગીતો તથા સ્નેહભર્યા સાથ સાથે શુકનની ઉજવણીમાં અમારી સાથે જોડાઓ.',
+ t1:'સવારે 10:00',t1n:'મહેમાનોનું આગમન અને સ્વાગત',t2:'સવારે 10:30',t2n:'પરિવારના આશીર્વાદ',t3:'સવારે 11:00',t3n:'વીંટી વિધિ 💍',t4:'બપોરે 12:00',t4n:'ભોજન અને ઉજવણી',
+ glimpseH:'અમારી એક નાનકડી ઝલક', glimpseP:'ઉજવણી શરૂ થાય તે પહેલાંની કેટલીક ક્ષણો.',
+ rsvpH:'શું આપ અમારી સાથે જોડાશો?', rsvpP:'આપની ઉપસ્થિતિ અમારા માટે આશીર્વાદરૂપ રહેશે. કૃપા કરીને અમને જણાવશો.',
+ yes:'❤️ હા, હું આવીશ', no:'કદાચ / નહીં આવી શકું', phName:'આપનું નામ', phMsg:'જૈમિન અને જૈમિની માટે સંદેશ (વૈકલ્પિક)',
+ sendRsvp:'WhatsApp પર જવાબ મોકલો 💌', guest:'એક મહેમાન',
+ thanks:'આભાર! આપનો WhatsApp જવાબ મોકલવા માટે તૈયાર છે. 💛',
+ shareH:'ખુશી વહેંચો', shareP:'એક ટેપથી કોઈ ખાસ વ્યક્તિને આમંત્રણ મોકલો.', share:'📤 આમંત્રણ શેર કરો', wishes:'💌 શુભેચ્છાઓ મોકલો',
+ shareNote:'WhatsApp, Instagram, SMS અને કોઈ પણ મેસેજિંગ એપ માટે યોગ્ય.',
+ footer:'સ્નેહ સહ, જૈમિન &amp; જૈમિની તથા પરિવારજનો<br><span style="display:block;margin-top:8px">આપની સાથે ઉજવણી કરવા અમે આતુર છીએ ❤️</span>',
+ noMsg:'નમસ્તે જૈમિન અને જૈમિની! તમારી સગાઈમાં આમંત્રણ આપવા બદલ આભાર. કદાચ હું આવી શકીશ નહીં, પરંતુ તમને બંનેને ખૂબ પ્રેમ અને શુભેચ્છાઓ! ❤️',
+ rsvpMsg:(n,m)=>`નમસ્તે જૈમિન અને જૈમિની! ❤️\n\nRSVP: હા, હું આવીશ!\nમહેમાન: ${n}${m?'\nસંદેશ: '+m:''}\n\nઆપની સાથે ઉજવણી કરવા આતુર છું!`,
+ wish:'નમસ્તે જૈમિન અને જૈમિની! તમારી સગાઈ બદલ અભિનંદન! તમારી જીવનસફર પ્રેમ, હાસ્ય અને ખુશીઓથી ભરેલી રહે એવી શુભેચ્છાઓ. ❤️',
+ shareTitle:'જૈમિન અને જૈમિની — સગાઈ આમંત્રણ', shareText:'જૈમિન અને જૈમિનીની સગાઈ ઉજવવા આપને સહર્ષ આમંત્રણ છે ❤️',
+ copied:'આમંત્રણની લિંક કોપી થઈ ગઈ! હવે તમે તેને WhatsApp માં પેસ્ટ કરી શકો છો.',
+ icsSummary:'જૈમિન અને જૈમિની — સગાઈ', icsLoc:'આગરવા, તા. ઠાસરા, જિ. ખેડા, ગુજરાત', icsDesc:'જૈમિન અને જૈમિનીનો સગાઈ સમારોહ.',
+ toastMusic:'🎶 સંગીત ચાલુ છે — બંધ કરવા 🔊 દબાવો', muteMusic:'સંગીત બંધ કરો', playMusic:'સંગીત ચાલુ કરો', toggle:'English'
+}};
+let LANG='en';
+const L=()=>T[LANG];
+window.tr=k=>T[LANG][k];
 const petalField=document.getElementById('petals');['#D8B26B','#EFD9A6','#C98A93','#F6C9CE'].forEach((c,i)=>{for(let j=0;j<5;j++){const p=document.createElement('div');p.className='petal';p.style.left=Math.random()*100+'vw';p.style.background=c;p.style.width=p.style.height=(8+Math.random()*8)+'px';p.style.opacity=.25+Math.random()*.35;p.style.animationDuration=(9+Math.random()*8)+'s';p.style.animationDelay=(Math.random()*10)+'s';petalField.appendChild(p)}});
-const envelope=document.getElementById('envelope'),stage=document.getElementById('envelope-stage'),card=document.getElementById('card');let envOpened=false;function openEnv(e){if(e)e.preventDefault();if(envOpened)return;envOpened=true;try{window.startMusic&&window.startMusic()}catch(e){}envelope.classList.add('open');setTimeout(()=>{stage.classList.add('stage-hide');card.classList.add('show')},650)}envelope.addEventListener('touchend',openEnv,{passive:false});envelope.addEventListener('click',openEnv);setTimeout(()=>{if(!envOpened){const h=document.getElementById('tapHint');h.innerHTML='Tap not opening? <a href="javascript:void(0)" onclick="document.getElementById(\'envelope\').click()" style="color:var(--rose);text-decoration:underline">Tap here to open</a>'}},5000);
-const target=new Date('2026-10-25T10:00:00+05:30'),cd=document.getElementById('countdown');function countdown(){let d=target-new Date();if(d<=0){cd.innerHTML='<div class="cd" style="grid-column:1/-1"><div class="cd-num">Today is the day! 🎉</div></div>';return}let days=Math.floor(d/86400000),hrs=Math.floor(d/3600000)%24,min=Math.floor(d/60000)%60,sec=Math.floor(d/1000)%60;cd.innerHTML=[[days,'DAYS'],[hrs,'HRS'],[min,'MIN'],[sec,'SEC']].map(x=>`<div class="cd"><div class="cd-num">${x[0]}</div><div class="cd-label">${x[1]}</div></div>`).join('')}countdown();setInterval(countdown,1000);
-const yes=document.getElementById('yesBtn'),form=document.getElementById('rsvpForm'),thanks=document.getElementById('thanks');yes.onclick=()=>{form.classList.add('show');yes.style.display='none'};document.getElementById('noBtn').onclick=()=>{const text=encodeURIComponent('Hi Jaimin & Jaimini! Thank you for inviting me to your engagement. I may not be able to attend, but sending you both lots of love and best wishes! ❤️');window.open('https://wa.me/'+HOST_WHATSAPP+'?text='+text,'_blank')};document.getElementById('sendRsvp').onclick=()=>{const name=document.getElementById('guestName').value.trim()||'A guest';const msg=document.getElementById('guestMessage').value.trim();const text=encodeURIComponent(`Hi Jaimin & Jaimini! ❤️\n\nRSVP: Yes, I'll be there!\nGuest: ${name}${msg?'\nMessage: '+msg:''}\n\nLooking forward to celebrating with you!`);window.open('https://wa.me/'+HOST_WHATSAPP+'?text='+text,'_blank');thanks.textContent='Thank you! Your WhatsApp RSVP is ready to send. 💛';thanks.style.display='block'};
-const wish='Hi Jaimin & Jaimini! Congratulations on your engagement! Wishing you both a beautiful journey filled with love, laughter and happiness. ❤️';document.getElementById('wishBtn').href='https://wa.me/'+HOST_WHATSAPP+'?text='+encodeURIComponent(wish);
-document.getElementById('shareBtn').onclick=async()=>{const data={title:'Jaimin & Jaimini — Engagement Invitation',text:'You are warmly invited to celebrate Jaimin & Jaimini’s engagement ❤️',url:location.href};if(navigator.share){try{await navigator.share(data)}catch(e){}}else{await navigator.clipboard?.writeText(location.href);alert('Invitation link copied! You can now paste it in WhatsApp.')}};
-document.getElementById('calendarBtn').onclick=()=>{const ics=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Jaimin Jaimini//Engagement//EN','BEGIN:VEVENT','UID:jaimin-jaimini-engagement-2026@example.com','DTSTAMP:20260926T000000Z','DTSTART:20261025T043000Z','DTEND:20261025T073000Z','SUMMARY:Jaimin & Jaimini — Engagement','LOCATION:Agarwa, Ta. Thasra, Dist. Kheda, Gujarat','DESCRIPTION:Engagement celebration of Jaimin & Jaimini.','END:VEVENT','END:VCALENDAR'].join('\r\n');const blob=new Blob([ics],{type:'text/calendar'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='Jaimin-Jaimini-Engagement.ics';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)};
+const envelope=document.getElementById('envelope'),stage=document.getElementById('envelope-stage'),card=document.getElementById('card');
+let envOpened=false,hintTimer=null;
+function openEnv(e){if(e)e.preventDefault();if(envOpened)return;envOpened=true;clearTimeout(hintTimer);try{window.startMusic&&window.startMusic()}catch(e){}envelope.classList.add('open');setTimeout(()=>{stage.classList.add('stage-hide');card.classList.add('show')},650)}
+envelope.addEventListener('touchend',openEnv,{passive:false});envelope.addEventListener('click',openEnv);
+
+const target=new Date('2026-10-25T10:00:00+05:30'),cd=document.getElementById('countdown');
+function countdown(){let d=target-new Date();if(d<=0){cd.innerHTML='<div class="cd" style="grid-column:1/-1"><div class="cd-num">'+L().today+'</div></div>';return}
+ let days=Math.floor(d/86400000),hrs=Math.floor(d/3600000)%24,min=Math.floor(d/60000)%60,sec=Math.floor(d/1000)%60,lb=L().cdLabels;
+ cd.innerHTML=[[days,lb[0]],[hrs,lb[1]],[min,lb[2]],[sec,lb[3]]].map(x=>`<div class="cd"><div class="cd-num">${x[0]}</div><div class="cd-label">${x[1]}</div></div>`).join('')}
+countdown();setInterval(countdown,1000);
+
+const yes=document.getElementById('yesBtn'),form=document.getElementById('rsvpForm'),thanks=document.getElementById('thanks'),wishBtn=document.getElementById('wishBtn');
+let thanksShown=false;
+yes.onclick=()=>{form.classList.add('show');yes.style.display='none'};
+document.getElementById('noBtn').onclick=()=>{window.open('https://wa.me/'+HOST_WHATSAPP+'?text='+encodeURIComponent(L().noMsg),'_blank')};
+document.getElementById('sendRsvp').onclick=()=>{const name=document.getElementById('guestName').value.trim()||L().guest;const msg=document.getElementById('guestMessage').value.trim();
+ window.open('https://wa.me/'+HOST_WHATSAPP+'?text='+encodeURIComponent(L().rsvpMsg(name,msg)),'_blank');thanksShown=true;thanks.textContent=L().thanks;thanks.style.display='block'};
+document.getElementById('shareBtn').onclick=async()=>{const data={title:L().shareTitle,text:L().shareText,url:location.href};
+ if(navigator.share){try{await navigator.share(data)}catch(e){}}else{try{await navigator.clipboard?.writeText(location.href)}catch(e){}alert(L().copied)}};
+document.getElementById('calendarBtn').onclick=()=>{const t=L();const ics=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Jaimin Jaimini//Engagement//EN','BEGIN:VEVENT','UID:jaimin-jaimini-engagement-2026@example.com','DTSTAMP:20260926T000000Z','DTSTART:20261025T043000Z','DTEND:20261025T073000Z','SUMMARY:'+t.icsSummary,'LOCATION:'+t.icsLoc,'DESCRIPTION:'+t.icsDesc,'END:VEVENT','END:VCALENDAR'].join('\r\n');
+ const blob=new Blob([ics],{type:'text/calendar;charset=utf-8'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='Jaimin-Jaimini-Engagement.ics';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)};
+
+/* ---------- apply a language to the whole page ---------- */
+const langToggle=document.getElementById('langToggle');
+function applyLang(l){
+ LANG=l;const t=T[l];
+ document.documentElement.lang=(l==='gu'?'gu':'en');
+ document.documentElement.classList.toggle('gu',l==='gu');
+ document.querySelectorAll('[data-i18n]').forEach(e=>{e.textContent=t[e.dataset.i18n]});
+ document.querySelectorAll('[data-i18n-html]').forEach(e=>{e.innerHTML=t[e.dataset.i18nHtml]});
+ document.querySelectorAll('[data-i18n-ph]').forEach(e=>{e.placeholder=t[e.dataset.i18nPh]});
+ wishBtn.href='https://wa.me/'+HOST_WHATSAPP+'?text='+encodeURIComponent(t.wish);
+ if(thanksShown)thanks.textContent=t.thanks;
+ langToggle.textContent=t.toggle;
+ document.title=t.title;
+ countdown();
+}
+function chooseLang(l){
+ applyLang(l);
+ document.getElementById('lang-stage').classList.add('hide');
+ langToggle.classList.add('show');
+ hintTimer=setTimeout(()=>{if(!envOpened)document.getElementById('tapHint').innerHTML=L().tapFallback},5000);
+}
+document.getElementById('langEn').onclick=()=>chooseLang('en');
+document.getElementById('langGu').onclick=()=>chooseLang('gu');
+langToggle.onclick=()=>applyLang(LANG==='en'?'gu':'en');
+applyLang('en');
+
 /* ---------- Background music (built-in, no file needed) ---------- */
 (function(){
   const btn=document.getElementById('musicBtn');
@@ -169,7 +303,7 @@ document.getElementById('calendarBtn').onclick=()=>{const ics=['BEGIN:VCALENDAR'
   function ui(on){
     btn.textContent=on?'🔊':'🔇';
     btn.classList.toggle('playing',on);
-    btn.setAttribute('aria-label',on?'Mute music':'Play music');
+    btn.setAttribute('aria-label',window.tr?tr(on?'muteMusic':'playMusic'):(on?'Mute music':'Play music'));
   }
   function toast(msg){
     const t=document.createElement('div');
@@ -217,7 +351,7 @@ document.getElementById('calendarBtn').onclick=()=>{const ics=['BEGIN:VCALENDAR'
   // called when the envelope is opened (a tap = allowed to play sound)
   window.startMusic=function(){
     if(userMuted||playing) return;
-    try{ start(); toast('🎶 Music playing — tap 🔊 to mute'); }catch(e){}
+    try{ start(); toast(window.tr?tr('toastMusic'):'🎶 Music playing — tap 🔊 to mute'); }catch(e){}
   };
   document.addEventListener('visibilitychange',()=>{
     if(!playing) return;
