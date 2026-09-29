@@ -174,32 +174,9 @@ const L=()=>T[LANG];
 window.tr=k=>T[LANG][k];
 const petalField=document.getElementById('petals');['#D8B26B','#EFD9A6','#C98A93','#F6C9CE'].forEach((c,i)=>{for(let j=0;j<5;j++){const p=document.createElement('div');p.className='petal';p.style.left=Math.random()*100+'vw';p.style.background=c;p.style.width=p.style.height=(8+Math.random()*8)+'px';p.style.opacity=.25+Math.random()*.35;p.style.animationDuration=(9+Math.random()*8)+'s';p.style.animationDelay=(Math.random()*10)+'s';petalField.appendChild(p)}});
 const envelope=document.getElementById('envelope'),stage=document.getElementById('envelope-stage'),card=document.getElementById('card');
-let envOpened = false;
-let hintTimer = null;
-let autoOpenTimer = null;
-
-function openEnv(e) {
-  if (e) e.preventDefault();
-  if (envOpened) return;
-
-  envOpened = true;
-  clearTimeout(hintTimer);
-  clearTimeout(autoOpenTimer);
-
-  try {
-    window.startMusic && window.startMusic();
-  } catch (e) {}
-
-  envelope.classList.add('open');
-
-  setTimeout(() => {
-    stage.classList.add('stage-hide');
-    card.classList.add('show');
-  }, 650);
-}
-
-envelope.addEventListener('touchend', openEnv, {passive:false});
-envelope.addEventListener('click', openEnv);
+let envOpened=false,hintTimer=null;
+function openEnv(e){if(e)e.preventDefault();if(envOpened)return;envOpened=true;clearTimeout(hintTimer);try{window.startMusic&&window.startMusic()}catch(e){}envelope.classList.add('open');setTimeout(()=>{stage.classList.add('stage-hide');card.classList.add('show')},650)}
+envelope.addEventListener('touchend',openEnv,{passive:false});envelope.addEventListener('click',openEnv);
 
 const target=new Date('2026-10-25T10:00:00+05:30'),cd=document.getElementById('countdown');
 function countdown(){let d=target-new Date();if(d<=0){cd.innerHTML='<div class="cd" style="grid-column:1/-1"><div class="cd-num">'+L().today+'</div></div>';return}
@@ -237,19 +214,7 @@ function chooseLang(l){
  applyLang(l);
  document.getElementById('lang-stage').classList.add('hide');
  langToggle.classList.add('show');
- // Show a helpful fallback hint after 3 seconds.
-hintTimer = setTimeout(() => {
-  if (!envOpened) {
-    document.getElementById('tapHint').innerHTML = L().tapFallback;
-  }
-}, 3000);
-
-// Automatically open the invitation after 6 seconds if untouched.
-autoOpenTimer = setTimeout(() => {
-  if (!envOpened) {
-    openEnv();
-  }
-}, 6000);
+ hintTimer=setTimeout(()=>{if(!envOpened)document.getElementById('tapHint').innerHTML=L().tapFallback},5000);
 }
 document.getElementById('langEn').onclick=()=>chooseLang('en');
 document.getElementById('langGu').onclick=()=>chooseLang('gu');
